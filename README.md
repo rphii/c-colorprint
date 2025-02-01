@@ -1,5 +1,9 @@
 # c-colorprint
 
+## Dependencies
+
+None
+
 ## Installation
 
 Place headers under `src` into `/usr/include/rphii`
