@@ -1,8 +1,19 @@
 #!/bin/bash
 set -ex
-if [[ -z $PREFIX ]]; then
-	PREFIX=/usr
+
+if [[ -z "${PREFIX}" ]]; then
+    echo "\$PREFIX is empty!" 1>&2
+    exit -1
 fi
-mkdir -p $PREFIX/include/rphii || true
-cp src/*.h $PREFIX/include/rphii
+
+# set up
+PROJECT=lut
+GROUP=rphii
+DIR_INCLUDES="${PREFIX}/include/${GROUP}"
+
+# create system directories
+mkdir -p "${DIR_INCLUDES}" || true
+
+# install
+cp src/*.h "${DIR_INCLUDES}"
 
